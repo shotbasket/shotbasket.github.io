@@ -4,12 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mac için ShotBasket</title>
-<meta name="description" content="ShotBasket, Mac’te çektiğin ekran görüntülerini bir sepette toplar. Tek ⌘V hepsini mesajına ayrı dosyalar olarak yapıştırır.">
+<meta name="description" content="Ekran görüntülerini Mac’inde biriktir, tek ⌘V ile hepsini ayrı dosyalar olarak yapıştır. Tek seferlik 9,99 $.">
+<meta name="theme-color" content="#04110C">
 <link rel="alternate" hreflang="en" href="https://shotbasket.github.io/">
 <link rel="alternate" hreflang="tr" href="https://shotbasket.github.io/tr/">
 <meta property="og:title" content="ShotBasket — Çok çek. Bir kez yapıştır.">
-<meta property="og:description" content="Ekran görüntülerini Mac’inde biriktir, tek ⌘V ile hepsini ayrı dosyalar olarak yapıştır.">
+<meta property="og:description" content="Ekran görüntülerini Mac’inde biriktir, tek ⌘V ile hepsini ayrı dosyalar olarak yapıştır. Tek seferlik 9,99 $.">
 <meta property="og:image" content="https://shotbasket.github.io/assets/og-tr.jpg">
+<meta property="og:url" content="https://shotbasket.github.io/tr/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -20,187 +22,94 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="./"><img src="../assets/icon-256.png" alt="" width="30" height="30">ShotBasket</a>
-    <nav aria-label="Ana menü">
-      <a class="opt" href="#nasil">Nasıl çalışır</a>
-      <a class="opt" href="#gizlilik">Gizlilik</a>
-      <a href="destek.html">Destek</a>
-      <a class="lang" href="../" hreflang="en" lang="en">English</a>
-    </nav>
+    <nav aria-label="Main"><a class="opt" href="#tur">Özellikler</a><a class="opt" href="#gizlilik">Gizlilik</a><a href="destek.html">Destek</a><a class="lang" href="../" hreflang="en" lang="en">English</a><a class="buy" href="#fiyat">9,99 $</a></nav>
   </div>
 </header>
 
 <main id="main">
-  <section class="hero">
+  <section class="hero" id="film">
     <div class="wrap">
       <div>
+        <p class="tag"><i></i>Mac’in menü çubuğunda ekran görüntüsü sepeti</p>
         <h1>Çok çek.<span>Bir kez yapıştır.</span></h1>
-        <p class="lede">ShotBasket, Mac’in menü çubuğunda çalışan bir uygulama. Ekran görüntülerin bir sepette birikir, <strong>tek ⌘V hepsini mesajına ayrı dosyalar olarak yapıştırır</strong>. Sıra, çektiğin sıradır.</p>
-        <div class="actions">
-          <span class="store" aria-label="Yakında Mac App Store’da"><small>Yakında</small><b>Mac App Store</b></span>
-          <a class="watch" href="#film">20 saniyelik filmi izle ↓</a>
-        </div>
-        <ul class="facts">
-          <li>macOS 13 ve sonrası</li>
-          <li>Apple silikon ve Intel</li>
-          <li>Türkçe ve İngilizce</li>
-        </ul>
+        <p class="lede">İhtiyacın olan bütün ekran görüntülerini çek. Hepsi sepette bekler. Sonra <b>tek ⌘V hepsini mesajına ayrı dosyalar olarak bırakır</b>, çektiğin sırayla.</p>
+        <div class="cta"><a class="btn" href="#fiyat"><img src="../assets/icon-256.png" alt="" width="26" height="26"><span><small>Çok yakında</small><b>Mac App Store’da</b></span><em>9,99 $</em></a><button class="ghost" type="button" data-play-film><i></i>Sesli izle</button></div>
+        <ul class="trust"><li>Tek seferlik ödeme</li><li>Abonelik yok</li><li>Hesap yok</li><li>İnternetsiz çalışır</li></ul>
       </div>
-
-      <figure class="demo" aria-label="Üç ekran görüntüsü sepete girer. ⌘V’den sonra mesajda üç ayrı dosya olarak görünür.">
-        <div class="basket">
-          <div class="stack" aria-hidden="true"><div class="shot"></div><div class="shot"></div><div class="shot"></div></div>
-          <div class="label">Sepet <span class="count" aria-hidden="true"><i>1</i><i>2</i><i>3</i></span></div>
-          <div class="keys" aria-hidden="true"><kbd>⌘</kbd><kbd>V</kbd></div>
-        </div>
-        <div class="compose" aria-hidden="true">
-          <div class="bar"><i></i><i></i><i></i><span>Yeni mesaj</span></div>
-          <div class="body">
-            <p class="to">Kime: Tasarım ekibi</p>
-            <p class="msg">Bugünkü toplantıdaki üç ekran burada.</p>
-            <div class="files">
-              <div class="file"><span class="thumb"></span><code>Capture-9EA16DAB.png</code><small>PNG</small></div>
-              <div class="file"><span class="thumb"></span><code>Capture-1AAE5E4C.png</code><small>PNG</small></div>
-              <div class="file"><span class="thumb"></span><code>Capture-86B228A7.png</code><small>PNG</small></div>
-            </div>
-            <span class="send">Gönder</span>
-          </div>
-        </div>
-        <figcaption>Örnek mesaj. Dosyaları ShotBasket yapıştırır, göndermek sana kalır.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="rule" id="neden">
-    <div class="wrap">
-      <p class="eyebrow">Neden sepet</p>
-      <h2>Mac’in panosu aynı anda tek görüntü tutar.</h2>
-      <p class="intro">Her yeni ekran görüntüsü öncekini siler. Bu yüzden birini çekersin, sohbete geçersin, yapıştırırsın, geri dönüp sıradakini çekersin. ShotBasket’le önce hepsini çekersin, sonra bir kez yapıştırırsın.</p>
-      <div class="tally">
-        <div>
-          <h3>ShotBasket olmadan beş ekran görüntüsü</h3>
-          <p class="big">19 adım</p>
-          <ul class="chain" aria-label="Beş kez tekrarlanır"><li>Çek</li><li>Uygulama değiştir</li><li>Yapıştır</li><li>Geri dön</li><li>× 5</li><li>son geri dönüş hariç</li></ul>
-        </div>
-        <div class="with">
-          <h3>ShotBasket ile beş ekran görüntüsü</h3>
-          <p class="big">7 adım</p>
-          <ul class="chain"><li>Çek × 5</li><li>Uygulama değiştir</li><li class="hot">⌘V</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="rule" id="nasil">
-    <div class="wrap">
-      <p class="eyebrow">Nasıl çalışır</p>
-      <h2>Zaten bildiğin üç hareket.</h2>
-      <ol class="steps">
-        <li>
-          <h3>Çek <kbd>⌘</kbd><kbd>⇧</kbd><kbd>4</kbd></h3>
-          <p>Alanı her zamanki gibi seç. Pencere için Boşluk’a bas. <kbd>⌘</kbd><kbd>⇧</kbd><kbd>3</kbd> ile hangi ekranı çekeceğini seçersin. Kısayolların hepsini Ayarlar’dan değiştirebilirsin.</p>
-        </li>
-        <li>
-          <h3>Biriktir</h3>
-          <p>Her görüntü sepete düşer ve Mac’ini yeniden başlatsan bile orada kalır. Yapıştırmadan önce işaretlemek istediğini düzenleyicide aç.</p>
-        </li>
-        <li>
-          <h3>Yapıştır <kbd>⌘</kbd><kbd>V</kbd></h3>
-          <p>Mesaj alanına tıkla ve ⌘V’ye bas. Her görüntü ayrı bir dosya olarak gelir. Hiçbiri birleştirilmez, hiçbir şey gönderilmez. Sepet boşken ⌘V her zamanki gibi çalışır.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="rule" id="uygulama">
-    <div class="wrap">
-      <p class="eyebrow">Uygulamanın içi</p>
-      <h2>Düzenleyici ve sepet.</h2>
-      <div class="screens">
-        <figure>
-          <picture><source srcset="../assets/ui/editor-tr-dark.png" media="(prefers-color-scheme: dark)"><img src="../assets/ui/editor-tr.png" alt="Örnek bir ekran görüntüsünde ok ve karartılmış satırla ShotBasket düzenleyicisi" width="1920" height="1280" loading="lazy"></picture>
-          <figcaption><b>Düzenleyici.</b> Ok, metin, şekil, numaralı adımlar, bulanıklaştırma ve kırpma. Uygula, sepete yeni bir PNG koyar ve özgün görüntüyü korur.</figcaption>
-        </figure>
-        <figure>
-          <picture><source srcset="../assets/ui/basket-tr-dark.png" media="(prefers-color-scheme: dark)"><img src="../assets/ui/basket-tr.png" alt="Üç örnek yakalamayı saat ve boyutuyla listeleyen ShotBasket sepeti" width="1920" height="1280" loading="lazy"></picture>
-          <figcaption><b>Sepet.</b> Her yakalama saati ve boyutuyla. Yapıştırmadan önce düzenle, paylaş, sabitle ya da çıkar.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="rule" id="film">
-    <div class="wrap">
-      <p class="eyebrow">Film</p>
-      <h2>Çekmekten yapıştırmaya yirmi saniye.</h2>
-      <div class="film">
-        <video controls playsinline preload="none" poster="../assets/video/poster-tr.jpg">
+      <div class="mac">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+        <video autoplay muted loop playsinline preload="auto" poster="../assets/video/poster-tr.jpg" aria-label="ShotBasket — Çok çek. Bir kez yapıştır.">
           <source src="../assets/video/promo-tr.mp4" type="video/mp4">
         </video>
+        <button class="sound" type="button" data-on="Sesi aç" data-off="Sesi kapat">Sesi aç</button>
       </div>
     </div>
   </section>
 
-  <section class="rule" id="ozellikler">
+  <section>
     <div class="wrap">
-      <p class="eyebrow">Sepette başka neler var</p>
-      <h2>Çekmekle yapıştırmak arasında elinin altında olanlar.</h2>
-      <dl class="list">
-        <div><dt>İşaretle</dt><dd>Ok, metin ve şekil ekle. Özel bilgileri bulanıklaştır ya da karart, sonra kırp. Özgün görüntü olduğu gibi kalır.</dd></div>
-        <div><dt>Hepsine aynı görünüm</dt><dd>Sepetteki bütün görüntülere tek seferde aynı arka planı ve çerçeveyi ver.</dd></div>
-        <div><dt>Kaydırmalı yakalama</dt><dd>Bir alan seç, sayfayı kaydır, hepsini tek bir uzun görüntü olarak al.</dd></div>
-        <div><dt>Ekran kaydı</dt><dd>Bir alanı, pencereyi ya da ekranı kaydet. Kırp, böl ve parçaları MP4 olarak kaydet.</dd></div>
-        <div><dt>Metni kopyala</dt><dd>Görüntüdeki yazıyı kopyala ya da içindeki QR kodu oku. Tanıma Mac’inde yapılır.</dd></div>
-        <div><dt>Ekrana sabitle</dt><dd>Bir görüntüyü çalışırken pencerelerinin üstünde açık tut.</dd></div>
-        <div><dt>İstediğin yere sürükle</dt><dd>Yakalama önizlemesini doğrudan bir sohbete, tarayıcı sekmesine ya da klasöre sürükle.</dd></div>
-        <div><dt>AirDrop ve Paylaş</dt><dd>Tek görüntüyü ya da bütün sepeti iPhone’una veya başka bir Mac’e gönder.</dd></div>
-        <div><dt>Renk seçici</dt><dd>Ekrandaki herhangi bir noktayı göster, HEX kodunu kopyala.</dd></div>
-        <div><dt>Zamanlayıcı</dt><dd>Alanı seç, ShotBasket görüntüyü birkaç saniye sonra çeksin.</dd></div>
-      </dl>
+      <p class="eyebrow">Sorun</p>
+      <h2>Pano tek görüntü tutar. <span>Mesajın beş tane istiyor.</span></h2>
+      <p class="intro">Her yeni ekran görüntüsü öncekini siler. Çekersin, sohbete geçersin, yapıştırırsın, geri dönersin ve hepsini baştan yaparsın. ShotBasket’le önce hepsini çekersin, sonra bir kez yapıştırırsın.</p>
+      <div class="race">
+        <div class="lane"><h3>Beş ekran görüntüsü, alışılmış yoldan</h3><p class="n" data-count="19">19<small>adım</small></p><ul class="marks"><li>Çek</li><li class="s">Geç</li><li>Yapıştır</li><li class="s">Dön</li><li>Çek</li><li class="s">Geç</li><li>Yapıştır</li><li class="s">Dön</li><li>Çek</li><li class="s">Geç</li><li>Yapıştır</li><li class="s">Dön</li><li>Çek</li><li class="s">Geç</li><li>Yapıştır</li><li class="s">Dön</li><li>Çek</li><li class="s">Geç</li><li>Yapıştır</li></ul><p>Bu adımların dokuzu sadece pencere değiştirmek.</p></div>
+        <div class="lane win"><h3>Beş ekran görüntüsü, ShotBasket ile</h3><p class="n" data-count="7">7<small>adım</small></p><ul class="marks"><li>Çek</li><li>Çek</li><li>Çek</li><li>Çek</li><li>Çek</li><li class="s">Geç</li><li class="v">⌘V</li></ul><p>Her görüntü ayrı bir dosya olarak gelir. Hiçbiri birleştirilmez, sen Gönder’e basana kadar hiçbir şey gitmez.</p></div>
+      </div>
     </div>
   </section>
 
-  <section class="band" id="gizlilik">
+  <section class="tour" id="tur">
+    <div class="wrap tour-head">
+      <div><p class="eyebrow">Çalışırken gör</p><h2>Gerçek ekranlar. <span>Gerçek kısayollar.</span></h2></div>
+      <div class="tour-nav"><button type="button" data-tour="prev" aria-label="Önceki ekran">←</button><output aria-live="polite">1 / 7</output><button type="button" data-tour="next" aria-label="Sonraki ekran">→</button></div>
+    </div>
+    <div class="track" tabindex="0"><figure class="slide"><img src="../assets/tour/tr-02.jpg" alt="Çok çek, bir kez yapıştır: üç görüntü mesaja üç ayrı dosya olarak yapıştırılmış" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-03.jpg" alt="Her çekim sepete: üç görüntünün durduğu sepet penceresi" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-04.jpg" alt="İşaretle ve karart: ok ve karartılmış satırla düzenleyici" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-05.jpg" alt="Hepsine aynı görünüm: her görüntüye aynı arka plan ve çerçeve" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-06.jpg" alt="Geliştiriciler için de: ekrana sabitle, renk seç, QR oku" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-07.jpg" alt="Uzun sayfa mı? Kolay: kaydırmalı yakalama bütün sayfayı birleştirir" width="1600" height="1000" loading="lazy"></figure><figure class="slide"><img src="../assets/tour/tr-08.jpg" alt="Hareketi de göster: kırpma ve bölmeyle ekran kaydı" width="1600" height="1000" loading="lazy"></figure></div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Araç kutusu</p>
+      <h2>Çekmekle yapıştırmak <span>arasındaki her şey.</span></h2>
+      <div class="tools"><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19L18 6"/><path d="M11 5h8v8"/></svg><h3>İşaretle</h3><p>Ok, metin, şekil ve numaralı adımlar.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg><h3>Hepsine aynı görünüm</h3><p>Her görüntüye aynı arka plan ve çerçeve.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 8v7"/><path d="M9 12.5l3 3 3-3"/></svg><h3>Kaydırmalı yakalama</h3><p>Bütün sayfa tek uzun görüntü.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="3"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg><h3>Ekran kaydı</h3><p>Kaydet, kırp, böl, MP4 olarak sakla.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V4h4"/><path d="M16 4h4v4"/><path d="M20 16v4h-4"/><path d="M8 20H4v-4"/><path d="M8 9.5h8"/><path d="M8 12.5h8"/><path d="M8 15.5h5"/></svg><h3>Metin ve QR</h3><p>Yazıyı ve QR kodu oku, Mac’inde.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 6 3 3H7l3-3z"/><path d="M12 12v9"/></svg><h3>Ekrana sabitle</h3><p>Çalışırken görüntü üstte kalsın.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4.5l5 5-2.5 2.5-5-5z"/><path d="M12.5 8.5L5 16v3h3l7.5-7.5"/></svg><h3>Renk seçici</h3><p>Ekrandaki her noktanın HEX kodu.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l3 2"/><path d="M9.5 2.5h5"/></svg><h3>Zamanlayıcı</h3><p>Görüntüyü birkaç saniye sonra çek.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="1.6" fill="currentColor" stroke="none"/><path d="M8.5 16.5a5 5 0 1 1 7 0"/><path d="M5.6 19.4a9 9 0 1 1 12.8 0"/></svg><h3>AirDrop ve Paylaş</h3><p>Tek görüntüyü ya da bütün sepeti gönder.</p></div><div class="tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5v19"/><path d="M2.5 12h19"/><path d="M9 5.5l3-3 3 3"/><path d="M9 18.5l3 3 3-3"/><path d="M5.5 9l-3 3 3 3"/><path d="M18.5 9l3 3-3 3"/></svg><h3>İstediğin yere sürükle</h3><p>Görüntüyü her uygulamaya ve tarayıcıya bırak.</p></div></div>
+    </div>
+  </section>
+
+  <section class="privacy" id="gizlilik">
     <div class="wrap">
       <p class="eyebrow">Gizlilik</p>
-      <h2>Ekran görüntülerin Mac’inde kalır.</h2>
-      <div class="promises">
-        <div><h3>Hesap yok</h3><p>Aç ve çekmeye başla. Üye olunacak bir şey yok.</p></div>
-        <div><h3>Bağlantı yok</h3><p>ShotBasket internete bağlanmaz. Reklam yok, analitik yok, bize ait bir sunucu yok.</p></div>
-        <div><h3>Gönder’e sen basarsın</h3><p>ShotBasket dosyaları seçtiğin alana yapıştırır. Senin yerine Return’e basmaz, mesaj göndermez.</p></div>
-        <div><h3>Zamanında temizlenir</h3><p>Sepetten çıkan görüntü, ayarladığın süre sonunda silinir. Yapıştırdığın uygulama dosyayı okuyabilsin diye bu süre en az on dakikadır.</p></div>
-      </div>
-      <div class="perms-wrap">
-        <table class="perms">
-          <caption class="eyebrow" style="text-align:left">macOS’un soracağı izinler</caption>
-          <tbody>
-            <tr><th scope="row">Ekran Kaydı</th><td>Ekran görüntüsü ve ekran kaydı almak için. Yeni macOS sürümlerinde adı Ekran ve Sistem Sesi Kaydı.</td></tr>
-            <tr><th scope="row">Erişilebilirlik</th><td>Yakalama kısayolları ve sepeti ⌘V ile yapıştırmak için. macOS 27’de adı Aygıt Denetimi ve Veri Erişimi.</td></tr>
-            <tr><th scope="row">Mikrofon</th><td>İsteğe bağlı. Sadece ekran kaydına sesini eklemek istersen.</td></tr>
-          </tbody>
-        </table>
+      <h2>Hiçbir şey <span>Mac’inden çıkmaz.</span></h2>
+      <div class="zeros"><div class="zero"><b>0</b><h3>İnternet bağlantısı</h3><p>ShotBasket internete hiç bağlanmaz. Var olmayan bir sunucudan ekran görüntün sızamaz.</p></div><div class="zero"><b>0</b><h3>Hesap</h3><p>Aç ve çekmeye başla. Üyelik yok, giriş yok, e-posta yok.</p></div><div class="zero"><b>0</b><h3>Takip</h3><p>Analitik yok, reklam yok, telemetri yok. Ne çektiğin seni ilgilendirir.</p></div></div>
+      <details class="perms"><summary>macOS hangi izinleri soracak ve neden</summary><dl><div><dt>Ekran Kaydı</dt><dd>Ekran görüntüsü ve ekran kaydı almak için. Yeni macOS sürümlerinde adı Ekran ve Sistem Sesi Kaydı.</dd></div><div><dt>Erişilebilirlik</dt><dd>Yakalama kısayolları ve sepeti ⌘V ile yapıştırmak için. macOS 27’de adı Aygıt Denetimi ve Veri Erişimi.</dd></div><div><dt>Mikrofon (isteğe bağlı)</dt><dd>Sadece ekran kaydına sesini eklemek istersen.</dd></div></dl></details>
+    </div>
+  </section>
+
+  <section class="price" id="fiyat">
+    <div class="wrap">
+      <div><p class="eyebrow">Fiyat</p><h2>Bir kez öde. <span>Senin olsun.</span></h2><p class="intro">Abonelik yok, hesap yok, uygulama içi satın alma yok. ShotBasket’i bir kez al, güncellemeleri Mac App Store’dan gelsin.</p></div>
+      <div class="card">
+        <div class="head"><img src="../assets/icon-256.png" alt="" width="56" height="56"><div><b>Mac için ShotBasket</b><small>Mac App Store</small></div></div>
+        <p class="amount"><sup>$</sup>9,99</p>
+        <p class="once">Tek seferlik ödeme</p>
+        <ul class="incl"><li>Sınırsız çekim, hepsi için tek ⌘V</li><li>Ok, metin, bulanıklaştırma ve kırpmalı düzenleyici</li><li>Kaydırmalı yakalama ve ekran kaydı</li><li>Metin kopyalama, QR, sabitleme ve renk seçici</li><li>macOS 13 ve sonrası, Apple silikon ve Intel</li><li>Türkçe ve İngilizce</li></ul>
+        <a class="btn" href="#film"><img src="../assets/icon-256.png" alt="" width="26" height="26"><span><small>Çok yakında</small><b>Mac App Store’da</b></span><em>9,99 $</em></a>
+        <p class="fine">Fiyat ABD doları cinsinden. App Store sana kendi para biriminde gösterir.</p>
       </div>
     </div>
   </section>
 
-  <section id="sss">
+  <section>
     <div class="wrap">
       <p class="eyebrow">Sorular</p>
-      <h2>Yapıştırmadan önce.</h2>
-      <div class="faq">
-        <details><summary>Hangi uygulamalara yapıştırabilirim?</summary><div><p>Yapıştırınca dosya kabul eden her uygulamaya ve web sayfasına: e-posta, sohbet uygulamaları, notlar, iş takip araçları ve çoğu yükleme alanı. Dosyaları nasıl göstereceğine uygulama karar verir; kimi küçük resim, kimi liste gösterir.</p></div></details>
-        <details><summary>⌘V başka her şeyde değişiyor mu?</summary><div><p>Yalnızca sepette görüntü varken. Sepet boşken ya da ShotBasket’i menü çubuğundan duraklattığında ⌘V, Mac’in normal yapıştırmasıdır.</p></div></details>
-        <details><summary>Ekran görüntülerim nerede tutuluyor?</summary><div><p>Sepetten çıkana kadar Mac’inde ShotBasket’in kendi klasöründe. Kalıcı kopya istersen Ekran Görüntülerini Klasöre Kaydet’i açıp bir klasör seç.</p></div></details>
-        <details><summary>Düzenlediğim görüntülere ne oluyor?</summary><div><p>Düzenleme yeni bir PNG oluşturur ve sepete geri koyar. Özgün dosyaya dokunulmaz.</p></div></details>
-        <details><summary>iPhone ya da Windows sürümü var mı?</summary><div><p>Hayır. ShotBasket Mac için yapıldı.</p></div></details>
-      </div>
+      <h2>Almadan önce.</h2>
+      <div class="faq"><details><summary>Hangi uygulamalara yapıştırabilirim?</summary><div><p>Yapıştırınca dosya kabul eden her uygulamaya ve web sayfasına: e-posta, sohbet uygulamaları, notlar, iş takip araçları ve çoğu yükleme alanı. Dosyaları nasıl göstereceğine uygulama karar verir.</p></div></details><details><summary>⌘V her yerde değişiyor mu?</summary><div><p>Yalnızca sepette bekleyen görüntü varken. Sepet boşken ya da ShotBasket’i menü çubuğundan duraklattığında ⌘V, Mac’in normal yapıştırmasıdır.</p></div></details><details><summary>Benim yerime mesaj gönderir mi?</summary><div><p>Hayır. ShotBasket dosyaları tıkladığın alana yapıştırır. Return’e basmaz, hiçbir şey göndermez.</p></div></details><details><summary>Ekran görüntülerim nerede tutuluyor?</summary><div><p>Mac’inde ShotBasket’in kendi klasöründe. Sepetten çıkan görüntü seçtiğin süre sonunda silinir, bu süre en az on dakikadır. Kalıcı kopya için Ekran Görüntülerini Klasöre Kaydet’i aç.</p></div></details><details><summary>Deneme sürümü var mı?</summary><div><p>Mac App Store’da ücretli uygulamalar için deneme sürümü yok. ShotBasket sana uymazsa reportaproblem.apple.com adresinden Apple’dan iade isteyebilirsin.</p></div></details><details><summary>iPhone ya da Windows sürümü var mı?</summary><div><p>Hayır. ShotBasket Mac için yapıldı.</p></div></details></div>
     </div>
   </section>
 
-  <section class="rule end">
+  <section class="end">
     <div class="wrap">
-      <img src="../assets/icon-256.png" alt="" width="96" height="96">
+      <img src="../assets/icon-512.png" alt="" width="112" height="112">
       <h2>Çok çek.<br><span>Bir kez yapıştır.</span></h2>
-      <div class="actions"><span class="store"><small>Yakında</small><b>Mac App Store</b></span></div>
+      <div class="cta"><a class="btn" href="#fiyat"><img src="../assets/icon-256.png" alt="" width="26" height="26"><span><small>Çok yakında</small><b>Mac App Store’da</b></span><em>9,99 $</em></a></div>
     </div>
   </section>
 </main>
@@ -208,7 +117,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 ShotBasket</span>
-    <nav aria-label="Alt menü"><a href="gizlilik.html">Gizlilik Politikası</a><a href="destek.html">Destek</a><a href="../" hreflang="en" lang="en">English</a></nav>
+    <nav aria-label="Footer"><a href="gizlilik.html">Gizlilik Politikası</a><a href="destek.html">Destek</a><a href="../" hreflang="en" lang="en">English</a></nav>
     <span class="mail">vetokori@gmail.com</span>
   </div>
 </footer>
