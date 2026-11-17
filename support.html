@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ShotBasket Support</title>
+<meta name="description" content="Help with ShotBasket for Mac: permissions, shortcuts, pasting and contact.">
+<link rel="alternate" hreflang="en" href="https://shotbasket.github.io/support.html">
+<link rel="alternate" hreflang="tr" href="https://shotbasket.github.io/tr/destek.html">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-256.png" alt="" width="30" height="30">ShotBasket</a>
+    <nav aria-label="Main">
+      <a class="opt" href="./#how">How it works</a>
+      <a class="opt" href="privacy.html">Privacy</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a class="lang" href="tr/destek.html" hreflang="tr" lang="tr">Türkçe</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc">
+  <div class="wrap">
+    <h1>Support</h1>
+    <p class="updated">Write to us and we will get back to you.</p>
+    <div class="contact"><code>vetokori@gmail.com</code></div>
+    <p>It helps to include your macOS version, the app you were pasting into, and what you expected to happen. A screenshot of the problem is welcome.</p>
+
+    <h2>Common problems</h2>
+
+    <h3>The shortcuts open the normal macOS screenshot</h3>
+    <p>ShotBasket needs the Accessibility permission to take over ⌘⇧4, ⌘⇧3, ⌘⇧2 and ⌘V. Open System Settings › Privacy &amp; Security › Accessibility and turn ShotBasket on. On macOS 27 this section is called Device Control and Data Access. Then click the ShotBasket icon in the menu bar and choose Enable Shortcuts.</p>
+
+    <h3>Screenshots come out empty or show only the desktop</h3>
+    <p>Turn ShotBasket on in System Settings › Privacy &amp; Security › Screen Recording (Screen &amp; System Audio Recording on newer macOS versions). macOS may ask you to quit and reopen the app before the change takes effect.</p>
+
+    <h3>⌘V pasted my normal clipboard</h3>
+    <ul>
+      <li>The basket was empty. ShotBasket only takes over ⌘V when it has screenshots waiting.</li>
+      <li>The shortcuts are paused. Choose Enable Shortcuts from the menu bar icon.</li>
+      <li>A password field is active somewhere. macOS blocks shortcut handling while secure input is on. Click outside the password field, or close the app that is holding it, and try again.</li>
+    </ul>
+
+    <h3>Only one image arrived, or the files arrived as text</h3>
+    <p>The app you pasted into decides what it accepts. Some fields take a single image or only text. Try the attachment area of the same app, or drag the capture preview into it instead.</p>
+
+    <h3>I want to see the introduction again</h3>
+    <p>Click the ShotBasket icon in the menu bar and choose Guide. It walks through permissions, capturing, editing and pasting.</p>
+
+    <h3>Removing ShotBasket</h3>
+    <p>Click the ShotBasket icon in the menu bar, choose Quit, then move ShotBasket from Applications to the Trash. You can also remove it from the permission lists in System Settings › Privacy &amp; Security.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 ShotBasket</span>
+    <nav aria-label="Footer"><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="tr/destek.html" hreflang="tr" lang="tr">Türkçe</a></nav>
+    <span class="mail">vetokori@gmail.com</span>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
