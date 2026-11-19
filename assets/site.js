@@ -1,4 +1,5 @@
-// Header border on scroll, film link, and the hero demo: capture regions into the basket, ⌘V pastes them as separate files.
+// Header border on scroll, film link, and the hero race: the same five screenshots go into one chat,
+// once with macOS alone (capture, switch, paste, switch back) and once with ShotBasket (capture five, switch, ⌘V).
 (function () {
   var top = document.querySelector('.top');
   function onScroll() { if (top) top.classList.toggle('scrolled', window.scrollY > 8); }
@@ -10,131 +11,98 @@
     a.addEventListener('click', function () { if (film) { film.muted = false; film.play().catch(function () {}); } });
   });
 
-  var desk = document.querySelector('.desk');
-  if (!desk) return;
-  var S = JSON.parse(desk.getAttribute('data-strings'));
-  var regs = desk.querySelectorAll('[data-reg]');
-  var badge = desk.querySelector('.badge'), tray = desk.querySelector('.basket');
-  var sel = desk.querySelector('.sel'), selLabel = sel.querySelector('span');
-  var card = desk.querySelector('.pcard'), cardText = card.querySelector('b'), cardThumb = card.querySelector('.pthumb');
-  var atts = desk.querySelector('.atts');
-  var hint = document.querySelector('.hint'), status = document.querySelector('.status');
+  var race = document.querySelector('.race');
+  if (!race) return;
+  var S = JSON.parse(race.getAttribute('data-strings'));
+  var replay = document.querySelector('.replay');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var basket = [], busy = false, auto = !reduce, timers = [], inView = false;
-  if (window.matchMedia('(hover: none)').matches) hint.textContent = S.hint_touch;
+  var TICK = 720, timer = null;
 
-  function say(msg) { if (!auto) status.textContent = msg; }
-  function rel(el) { var d = desk.getBoundingClientRect(), r = el.getBoundingClientRect(); return { x: r.left - d.left, y: r.top - d.top, w: r.width, h: r.height }; }
-  function copyOf(reg, scale) {
-    var c = reg.cloneNode(true);
-    c.removeAttribute('data-reg'); c.classList.remove('flash');
-    c.style.width = reg.offsetWidth + 'px'; c.style.height = reg.offsetHeight + 'px';
-    if (scale) c.style.transform = 'scale(' + scale + ')';
-    return c;
-  }
-  function cover(reg, w, h) { return copyOf(reg, Math.max(w / reg.offsetWidth, h / reg.offsetHeight)); }
-  function tween(ms, step, done) {
-    if (reduce || !ms) { step(1); done(); return; }
-    var t0 = null;
-    function f(t) { if (!t0) t0 = t; var p = Math.min(1, (t - t0) / ms); step(1 - Math.pow(1 - p, 3)); if (p < 1) requestAnimationFrame(f); else done(); }
-    requestAnimationFrame(f);
-  }
-  function setBadge() {
-    if (basket.length) badge.textContent = basket.length;
-    badge.classList.toggle('on', basket.length > 0);
-  }
-
-  function capture() {
-    if (busy) return;
-    if (basket.length >= regs.length) { say(S.s_full); return; }
-    if (!basket.length && atts.children.length) atts.innerHTML = '';
-    busy = true;
-    var i = basket.length, reg = regs[i], r = rel(reg), pad = 4;
-    var x0 = r.x - pad, y0 = r.y - pad, w = r.w + pad * 2, h = r.h + pad * 2;
-    sel.style.display = 'block';
-    tween(420, function (p) {
-      sel.style.left = x0 + 'px'; sel.style.top = y0 + 'px';
-      sel.style.width = (w * p) + 'px'; sel.style.height = (h * p) + 'px';
-      selLabel.textContent = p < .08 ? '' : Math.round(w * p * 2) + ' × ' + Math.round(h * p * 2);
-    }, function () {
-      reg.classList.remove('flash'); void reg.offsetWidth; reg.classList.add('flash');
-      setTimeout(function () { sel.style.display = 'none'; land(i, reg, r); }, reduce ? 0 : 180);
-    });
-  }
-  function land(i, reg, r) {
-    function done() {
-      basket.push(i); setBadge();
-      tray.classList.remove('bump'); void tray.offsetWidth; tray.classList.add('bump');
-      cardText.textContent = S.card.replace('{n}', basket.length);
-      cardThumb.innerHTML = ''; cardThumb.appendChild(cover(reg, 46, 30));
-      card.classList.add('on');
-      say(basket.length === regs.length ? S.s_full : S.s_captured.replace('{n}', basket.length));
-      busy = false;
+  // Exact step lists for five screenshots: 5 + 9 + 5 = 19 without ShotBasket, 5 + 1 + 1 = 7 with it.
+  function plan(side) {
+    var steps = [], i;
+    if (side === 'mac') {
+      for (i = 0; i < 5; i++) {
+        steps.push({ cap: i }, { sw: 'chat' }, { paste: [i] });
+        if (i < 4) steps.push({ sw: 'src' });
+      }
+    } else {
+      for (i = 0; i < 5; i++) steps.push({ cap: i });
+      steps.push({ sw: 'chat' }, { paste: [0, 1, 2, 3, 4] });
     }
-    if (reduce || !Element.prototype.animate) { done(); return; }
-    var fly = document.createElement('div'), t = rel(tray);
-    fly.className = 'fly';
-    fly.style.cssText = 'left:' + r.x + 'px;top:' + r.y + 'px;width:' + r.w + 'px;height:' + r.h + 'px';
-    fly.appendChild(copyOf(reg));
-    desk.appendChild(fly);
-    var k = 22 / r.w, dx = t.x + t.w / 2 - r.x - 11, dy = t.y + t.h / 2 - r.y - (r.h * k) / 2;
-    var anim = fly.animate([{ transform: 'none', opacity: 1 }, { transform: 'translate(' + dx * .55 + 'px,' + (dy * .55 - 30) + 'px) scale(' + (.5 + k / 2) + ')', opacity: 1, offset: .55 },
-      { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + k + ')', opacity: .2 }], { duration: 700, easing: 'cubic-bezier(.45,0,.25,1)' });
-    anim.onfinish = function () { fly.remove(); done(); };
+    return steps;
   }
-  function paste() {
-    if (busy) return false;
-    if (!basket.length) { say(S.s_empty); return false; }
-    var n = basket.length;
-    atts.innerHTML = '';
-    basket.forEach(function (i, k) {
-      setTimeout(function () {
-        var f = document.createElement('figure'), box = document.createElement('div'), cap = document.createElement('figcaption');
-        f.className = 'att'; box.className = 'att-img'; cap.textContent = (k + 1) + '.png';
-        box.appendChild(cover(regs[i], 92, 62)); f.appendChild(box); f.appendChild(cap); atts.appendChild(f);
-      }, reduce ? 0 : k * 140);
-    });
-    basket = []; setBadge(); card.classList.remove('on');
-    say(S.s_pasted.replace('{n}', n));
-    return true;
-  }
-  function reset() { basket = []; setBadge(); atts.innerHTML = ''; card.classList.remove('on'); say(''); }
 
-  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
-  function takeOver() { if (auto) { auto = false; clearTimers(); } }
-  function runAuto() {
-    if (!auto || !inView) return;
-    var t = 0;
-    [[700, reset], [600, capture], [1500, capture], [1500, capture], [1400, paste], [3600, null]].forEach(function (s) {
-      t += s[0]; if (s[1]) timers.push(setTimeout(function () { if (auto) s[1](); }, t));
-    });
-    timers.push(setTimeout(runAuto, t));
-  }
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) {
-      inView = es[0].isIntersecting;
-      if (!auto) return;
-      clearTimers();
-      if (inView) runAuto();
-    }, { threshold: 0.35 }).observe(desk);
-  } else { inView = true; auto = false; }
-
-  document.querySelectorAll('[data-act]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var wasAuto = auto; takeOver();
-      if (wasAuto && busy) return;
-      var a = b.getAttribute('data-act');
-      if (a === 'capture') capture(); else if (a === 'paste') paste(); else reset();
-    });
+  var lanes = [].map.call(race.querySelectorAll('.lane'), function (el) {
+    var side = el.getAttribute('data-side');
+    return {
+      el: el, side: side, steps: plan(side), at: 0, sent: 0,
+      src: el.querySelector('.src'), chat: el.querySelector('.chat'), app: el.querySelector('[data-app]'),
+      regs: el.querySelectorAll('.rg'), atts: el.querySelector('.atts'), hud: el.querySelector('.hud'),
+      badge: el.querySelector('.bk i'), count: el.querySelector('.cnt b'), cnt: el.querySelector('.cnt'),
+      sentEl: el.querySelector('.prog b'), dots: el.querySelectorAll('.dots i')
+    };
   });
-  document.addEventListener('keydown', function (e) {
-    var el = e.target;
-    if (!inView || (el && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))) return;
-    var k = (e.key || '').toLowerCase();
-    if (k === 'c' && !e.metaKey && !e.ctrlKey && !e.altKey) { takeOver(); capture(); e.preventDefault(); }
-    else if (k === 'v' && (e.metaKey || e.ctrlKey) && !e.altKey) {
-      takeOver();
-      if (basket.length) { e.preventDefault(); paste(); } else say(S.s_empty);
+
+  function front(l, which) {
+    l.src.classList.toggle('front', which === 'src');
+    l.chat.classList.toggle('front', which === 'chat');
+    l.app.textContent = (which === 'src' ? l.src : l.chat).querySelector('.tb span').textContent;
+  }
+  function key(l, text) {
+    if (reduce) return;
+    l.hud.textContent = text; l.hud.classList.add('on');
+    clearTimeout(l.hudTimer); l.hudTimer = setTimeout(function () { l.hud.classList.remove('on'); }, TICK * 0.7);
+  }
+  function badge(l, n) {
+    if (!l.badge) return;
+    l.badge.textContent = n; l.badge.classList.toggle('on', n > 0);
+    l.badge.classList.remove('pop'); void l.badge.offsetWidth; if (n > 0 && !reduce) l.badge.classList.add('pop');
+  }
+  function run(l, s) {
+    if (s.cap !== undefined) {
+      key(l, '⌘⇧4'); var r = l.regs[s.cap];
+      r.classList.remove('snap'); void r.offsetWidth; if (!reduce) r.classList.add('snap');
+      if (l.side === 'sb') badge(l, s.cap + 1);
+    } else if (s.sw) {
+      key(l, '⌘⇥'); front(l, s.sw);
+    } else if (s.paste) {
+      key(l, '⌘V');
+      s.paste.forEach(function (i, k) {
+        var a = document.createElement('span'); a.className = 'att a' + (i + 1);
+        a.style.animationDelay = (reduce ? 0 : k * 70) + 'ms'; l.atts.appendChild(a);
+      });
+      l.sent += s.paste.length; badge(l, 0);
+      l.sentEl.textContent = l.sent;
+      for (var d = 0; d < l.dots.length; d++) l.dots[d].classList.toggle('on', d < l.sent);
     }
-  });
+    l.at++; l.count.textContent = l.at;
+    if (l.at === l.steps.length) { l.el.classList.add('done'); l.cnt.setAttribute('data-done', S.done); }
+  }
+  function reset() {
+    clearInterval(timer);
+    lanes.forEach(function (l) {
+      l.at = 0; l.sent = 0; l.atts.textContent = ''; l.count.textContent = '0'; l.sentEl.textContent = '0';
+      l.el.classList.remove('done'); front(l, 'src'); badge(l, 0);
+      [].forEach.call(l.dots, function (d) { d.classList.remove('on'); });
+      [].forEach.call(l.regs, function (r) { r.classList.remove('snap'); });
+    });
+  }
+  function play() {
+    reset(); if (replay) replay.hidden = true;
+    if (reduce) { lanes.forEach(function (l) { l.steps.forEach(function (s) { run(l, s); }); }); if (replay) replay.hidden = true; return; }
+    timer = setInterval(function () {
+      var busy = false;
+      lanes.forEach(function (l) { if (l.at < l.steps.length) { run(l, l.steps[l.at]); busy = true; } });
+      if (!busy) { clearInterval(timer); if (replay) replay.hidden = false; }
+    }, TICK);
+  }
+  if (replay) replay.addEventListener('click', play);
+
+  reset();
+  if (!('IntersectionObserver' in window)) { play(); return; }
+  var seen = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) { seen.disconnect(); setTimeout(play, 400); }
+  }, { threshold: 0.45 });
+  seen.observe(race);
 })();
