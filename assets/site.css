@@ -69,14 +69,45 @@ section { padding: clamp(72px, 10vw, 128px) 0; }
 
 /* Why */
 .why { background: var(--white); border-block: 1px solid var(--line-2); }
-.why h2 { max-width: 20ch; }
-.why-body { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px 72px; margin-top: 36px; }
-.why .intro { font-size: 20px; color: var(--ink-2); max-width: 42ch; }
-.facts { list-style: none; margin: 0; padding: 0; }
-.facts li { padding: 16px 0 16px 34px; border-top: 1px solid var(--line); position: relative; }
-.facts li:first-child { border-top: 0; padding-top: 0; }
-.facts li::before { content: ""; position: absolute; left: 4px; top: 22px; width: 12px; height: 7px; border-left: 2.5px solid var(--indigo); border-bottom: 2.5px solid var(--indigo); transform: rotate(-45deg); }
-.facts li:first-child::before { top: 6px; }
+.why-head { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 72px; align-items: end; }
+.why .intro { font-size: 20px; color: var(--ink-2); max-width: 44ch; }
+/* Clipboard vs basket: the same five captures arrive; one box keeps the newest, the other keeps them all */
+.keep { display: grid; grid-template-columns: 1fr 1.6fr; gap: 24px; margin: 44px 0 40px; }
+.box { margin: 0; border-radius: 22px; background: var(--tint); padding: 34px 28px 22px; display: grid; gap: 22px; }
+.slot { position: relative; height: 88px; }
+.clip .slot { width: 124px; margin: 0 auto; }
+.bask .slot { width: min(100%, 640px); margin: 0 auto; }
+.box figcaption { display: grid; gap: 2px; text-align: center; color: var(--ink-2); font-size: 15px; }
+.box figcaption b { color: var(--ink); font-size: 17px; }
+.bask figcaption b { color: var(--indigo); }
+.t { position: absolute; top: 0; width: 124px; height: 88px; border-radius: 12px; background: #fff; box-shadow: 0 10px 22px -10px rgba(21,23,42,.45), 0 0 0 1px rgba(21,23,42,.08); opacity: 0; }
+.t::before { content: ""; position: absolute; left: 12px; top: 12px; width: 56%; height: 9px; border-radius: 5px; background: #1d1d1f; opacity: .8; }
+.t::after { content: ""; position: absolute; left: 12px; right: 12px; top: 30px; bottom: 12px; border-radius: 7px; }
+.t1::after { background: radial-gradient(circle at 70% 40%, #FFB547 0 18%, transparent 19%), linear-gradient(135deg, #DCE3FF, #F1E1FF); }
+.t2::after { background: linear-gradient(90deg, #E3E5EF 0 30%, transparent 30% 35%, #3D5BFF 35% 65%, transparent 65% 70%, #E3E5EF 70%); }
+.t3::after { background: radial-gradient(circle at 18% 50%, #FF8A65 0 14%, transparent 15%), radial-gradient(circle at 50% 50%, #4FC3F7 0 14%, transparent 15%), radial-gradient(circle at 82% 50%, #BA68C8 0 14%, transparent 15%); }
+.t4::after { background: linear-gradient(90deg, #FF6B5A 0 30%, transparent 30% 35%, #3D5BFF 35% 65%, transparent 65% 70%, #FFB547 70%); }
+.t5::after { left: 38%; right: 38%; border-radius: 50%; background: #1F9D55; }
+.bask .t { --x: 0; left: calc(var(--i) * (100% - 124px) / 4); }
+.t1 { --i: 0; } .t2 { --i: 1; } .t3 { --i: 2; } .t4 { --i: 3; } .t5 { --i: 4; }
+/* A 7 s loop: capture i arrives at i seconds. The clipboard pushes the previous one out; the basket keeps it. */
+.clip .t { animation: bumped 7s infinite both; } .clip .t5 { animation-name: newest; }
+.bask .t { animation: kept1 7s infinite both; }
+.t1 { animation-delay: 0s; } .t2 { animation-delay: -6s; } .t3 { animation-delay: -5s; } .t4 { animation-delay: -4s; } .t5 { animation-delay: -3s; }
+@keyframes bumped { 0% { opacity: 0; transform: translateY(-34px) scale(.9); } 3% { opacity: 1; transform: none; } 14.3% { opacity: 1; transform: none; }
+  19% { opacity: 0; transform: translate(70px, 26px) rotate(14deg) scale(.86); } 100% { opacity: 0; } }
+@keyframes newest { 0% { opacity: 0; transform: translateY(-34px) scale(.9); } 3% { opacity: 1; transform: none; } 34% { opacity: 1; transform: none; } 40%, 100% { opacity: 0; } }
+.bask .t1 { animation-name: kept1; } .bask .t2 { animation-name: kept2; } .bask .t3 { animation-name: kept3; } .bask .t4 { animation-name: kept4; } .bask .t5 { animation-name: kept5; }
+@keyframes kept1 { 0% { opacity: 0; transform: translateY(-34px) scale(.9); } 3%, 91% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes kept2 { 0%, 14.3% { opacity: 0; transform: translateY(-34px) scale(.9); } 17.3%, 91% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes kept3 { 0%, 28.6% { opacity: 0; transform: translateY(-34px) scale(.9); } 31.6%, 91% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes kept4 { 0%, 42.9% { opacity: 0; transform: translateY(-34px) scale(.9); } 45.9%, 91% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+@keyframes kept5 { 0%, 57.1% { opacity: 0; transform: translateY(-34px) scale(.9); } 60.1%, 91% { opacity: 1; transform: none; } 97%, 100% { opacity: 0; } }
+.bask .t { animation-delay: 0s; }
+@media (prefers-reduced-motion: reduce) { .t { animation: none !important; } .clip .t5, .bask .t { opacity: 1; } }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.facts li { padding: 0 0 0 30px; position: relative; }
+.facts li::before { content: ""; position: absolute; left: 2px; top: 6px; width: 12px; height: 7px; border-left: 2.5px solid var(--indigo); border-bottom: 2.5px solid var(--indigo); transform: rotate(-45deg); }
 .facts p { color: var(--ink-2); font-size: 16px; margin-top: 2px; }
 
 /* App rows */
@@ -86,8 +117,11 @@ section { padding: clamp(72px, 10vw, 128px) 0; }
 .row:nth-of-type(even) figure { order: 2; }
 .row figure { margin: 0; }
 .row img { border-radius: 12px; filter: drop-shadow(0 24px 40px rgba(21,23,42,.22)); }
-.row-card figure { background: var(--tint); border-radius: 22px; padding: clamp(40px, 6vw, 84px) 24px; display: grid; place-items: center; }
-.row-card img { width: min(100%, 420px); border-radius: 0; filter: drop-shadow(0 16px 26px rgba(21,23,42,.28)); }
+/* Clips: silent loops rendered from the app's own drawing code (scripts/render-site-clips.sh) */
+video.clip, video.tile { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: var(--tint); }
+video.clip.dark { display: none; }
+@media (prefers-color-scheme: dark) { video.clip.light { display: none; } video.clip.dark { display: block; } }
+video.clip { border-radius: 14px; box-shadow: 0 28px 60px -24px rgba(21,23,42,.5), 0 0 0 1px rgba(21,23,42,.06); }
 .row h3 { font-size: clamp(24px, 2.5vw, 32px); letter-spacing: -.025em; font-weight: 700; margin-bottom: 12px; }
 .row p { color: var(--ink-2); max-width: 40ch; }
 .kit-h { margin: clamp(24px, 4vw, 48px) 0 32px; }
@@ -97,12 +131,16 @@ section { padding: clamp(72px, 10vw, 128px) 0; }
 .kit h3 { font-size: 17px; margin-bottom: 3px; }
 .kit p { font-size: 15px; color: var(--ink-2); }
 
-/* Film */
-.film { padding-top: 0; }
-.film-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; margin-bottom: 26px; }
-.film-head p { color: var(--ink-2); }
-.screen { border-radius: 18px; overflow: hidden; background: #0B0D22; box-shadow: var(--shadow); }
-.screen video { width: 100%; aspect-ratio: 16 / 9; }
+/* Pick how it lands: three of the seventeen intake animations, and a tease for the rest */
+.styles { padding-top: 0; }
+.styles-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 32px; margin-bottom: 28px; }
+.styles-head p { color: var(--ink-2); font-size: 19px; }
+.tiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
+video.tile { border-radius: 14px; box-shadow: 0 18px 40px -22px rgba(21,23,42,.5); }
+.tiles h3 { font-size: 19px; margin: 16px 0 4px; }
+.tiles p { color: var(--ink-2); font-size: 15px; }
+.tease { margin-top: 36px; padding: 22px 26px; border-radius: 18px; background: var(--tint); font-size: 19px; max-width: 62ch; }
+.kit-section { padding-top: 0; }
 
 /* Privacy: the one dark band */
 .privacy { background: var(--night); color: var(--night-ink); }
@@ -167,7 +205,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--ink); text-dec
 .contact code { font: 600 19px var(--font); background: var(--white); border: 1px solid var(--line); padding: 10px 16px; border-radius: 12px; display: inline-block; }
 
 @media (max-width: 900px) {
-  .hero-head, .why-body, .row, .row:nth-of-type(even), .privacy-body, .price .wrap, .faq .wrap { grid-template-columns: 1fr; }
+  .hero-head, .why-head, .keep, .facts, .row, .row:nth-of-type(even), .privacy-body, .price .wrap, .faq .wrap { grid-template-columns: 1fr; }
   .row:nth-of-type(even) figure { order: 0; }
   .cta { justify-content: flex-start; }
   .kit { grid-template-columns: 1fr 1fr; }
