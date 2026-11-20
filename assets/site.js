@@ -6,6 +6,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // "Watch the film" scrolls to the film and plays it with sound.
+  var film = document.querySelector('.film video');
+  document.querySelectorAll('[data-play-film]').forEach(function (a) {
+    a.addEventListener('click', function () { if (film) { film.muted = false; film.play().catch(function () {}); } });
+  });
+
   // Clips behave like GIFs: they play only while on screen, and not at all with Reduce Motion (the poster stays).
   var clips = document.querySelectorAll('video.clip, video.tile');
   var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
