@@ -62,7 +62,9 @@
 @keyframes snap { 0% { background: rgba(255,255,255,.9); box-shadow: inset 0 0 0 .5cqw #3D5BFF; } 100% { background: rgba(255,255,255,0); box-shadow: inset 0 0 0 .5cqw rgba(61,91,255,0); } }
 
 /* Chat */
-.bub { position: absolute; left: 2cqw; top: 7cqw; max-width: 78%; background: #ECECF1; color: #1d1d1f; border-radius: 2cqw; padding: 1.2cqw 1.8cqw; font-size: 1.9cqw; line-height: 1.35; }
+.msgs { position: absolute; left: 2cqw; right: 2cqw; top: 6cqw; display: flex; flex-direction: column; gap: 1.4cqw; }
+.who { display: block; margin: 0 0 .5cqw .4cqw; font-size: 1.5cqw; font-weight: 700; color: #6e6e73; }
+.bub { margin: 0; width: fit-content; max-width: 78%; background: #ECECF1; color: #1d1d1f; border-radius: 2cqw; padding: 1.2cqw 1.8cqw; font-size: 1.9cqw; line-height: 1.35; }
 .comp { position: absolute; left: 1.6cqw; right: 1.6cqw; bottom: 1.6cqw; border: 1px solid #dedee6; border-radius: 1.8cqw; padding: 1.2cqw; }
 .atts { display: flex; gap: .9cqw; min-height: 5.6cqw; }
 .att { width: 7.4cqw; height: 5.6cqw; border-radius: .9cqw; box-shadow: 0 0 0 1px rgba(21,23,42,.12); animation: drop .32s cubic-bezier(.2,1.4,.4,1) both; }
